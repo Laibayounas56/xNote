@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const JWT_SECRET = "ima barbie gurl"; 
-
+var fetchuser=require('../middleware/fetchuser')
 // route 1: Create a user - POST /api/auth/createUser
 router.post('/createUser',
     [
@@ -80,6 +80,18 @@ router.post('/login', [
         const authorizeToken = jwt.sign(data, JWT_SECRET);
         res.json({ authorizeToken });
 
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// route 3: Get loggedIn users details - POST /api/auth/getUser
+router.post('/getUser', fetchuser, async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const user = await User.findById(userId).select("-password");
+        res.send(user);
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Internal Server Error");
