@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const host = "http://localhost:5000"
 
 
-const Login = () => {
+const Login = (props) => {
     const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -20,9 +20,10 @@ const Login = () => {
      //save auth token and redirect
      localStorage.setItem('token',json.authorizeToken)
      navigate("/")
+         props.showAlert("Logged In Successfully",'success')
     }
     else{
-      alert("invalid cfredentials")
+         props.showAlert("Invalid credentials",'danger')
     }
 
   }
@@ -32,9 +33,10 @@ const Login = () => {
   const onchange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
-  
+
   return (
     <form onSubmit={handleSubmit}>
+      <h2 style={{marginTop:"20px",marginBottom:"10px"}}>Login Page</h2>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">Email address</label>
         <input type="email" className="form-control" id="email" name='email'

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
  import { useNavigate } from 'react-router-dom'
 const host = "http://localhost:5000"
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [credentials, setCredentials] = useState({ name: "", email:"",password: "" })
 
      const navigate = useNavigate();
@@ -22,9 +22,11 @@ const SignUp = () => {
        //save auth token and redirect
        localStorage.setItem('token',json.authorizeToken)
        navigate("/")
+       props.showAlert("Account created successfully",'success')
+
       }
       else{
-        alert("invalid cfredentials")
+       props.showAlert("Invalid Details",'danger')
       }
   
     }
@@ -36,6 +38,8 @@ const SignUp = () => {
 
   return (
    <form onSubmit={handleSubmit}>
+      <h2 style={{marginTop:"20px",marginBottom:"10px"}}>SignUp Page</h2>
+
      <div className="mb-3">
     <label htmlFor="name" className="form-label">Name</label>
     <input type="text" className="form-control" id="name" name='name' minLength={3} required onChange={onchange} 
