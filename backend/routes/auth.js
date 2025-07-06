@@ -50,6 +50,7 @@ router.post('/createUser',
 );
 
 // Route 2: Login a user - POST /api/auth/login
+let success=false;
 router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannot be blank').exists()
@@ -69,7 +70,8 @@ router.post('/login', [
 
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
-            return res.status(400).json({ error: "Invalid credentials" });
+            success=false;
+            return res.status(400).json({success, error: "Invalid credentials" });
         }
 
         const data = {
@@ -78,7 +80,8 @@ router.post('/login', [
             }
         };
         const authorizeToken = jwt.sign(data, JWT_SECRET);
-        res.json({ authorizeToken });
+        success=true;
+        res.json({success, authorizeToken });
 
     } catch (err) {
         console.error(err.message);
