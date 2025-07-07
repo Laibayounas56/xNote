@@ -38,7 +38,7 @@ const SignUp = (props) => {
 
   return (
    <form onSubmit={handleSubmit}>
-      <h2 style={{marginTop:"20px",marginBottom:"10px"}}>SignUp Page</h2>
+      <h2 style={{marginTop:"20px",marginBottom:"10px"}}>Create an account to use xNote</h2>
 
      <div className="mb-3">
     <label htmlFor="name" className="form-label">Name</label>
