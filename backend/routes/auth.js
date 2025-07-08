@@ -21,9 +21,9 @@ router.post('/createUser',
         }
 
         try {
-            let user = await User.findOne({ success,email: req.body.email });
+            let user = await User.findOne({ email: req.body.email });
             if (user) {
-                return res.status(400).json({ error: "User already exists" });
+                return res.status(400).json({ success,error: "User already exists" });
             }
 
             const salt = await bcrypt.genSalt(10);

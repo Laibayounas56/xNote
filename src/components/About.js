@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="about-page"> {/* 👈 Add this wrapper class */}
+    <div className="about-page"> 
       {/* Hero Section */}
       <section className="text-center py-3 bg-light hero-section">
         <div className="container">
