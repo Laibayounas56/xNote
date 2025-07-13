@@ -17,7 +17,15 @@ app.get('/', (req, res) => {
 
 (async () => {
   await connectToMongo();
-  console.log(' MongoDB connected. Server is ready.');
+
+  // If running locally: start server
+  if (process.env.LOCAL) {
+    const port = 5000;
+    app.listen(port, () => {
+      console.log(`Local backend listening on http://localhost:${port}`);
+    });
+  }
 })();
+
 
 module.exports = serverless(app);
