@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
  import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 const host = "https://x-note-eta.vercel.app";
-
 
 const Login = (props) => {
     const navigate = useNavigate();
@@ -35,6 +35,7 @@ const Login = (props) => {
   }
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <h2 style={{marginTop:"20px",marginBottom:"10px"}}>Login to Continue to xNote</h2>
       <div className="mb-3">
@@ -48,8 +49,15 @@ const Login = (props) => {
         <input type="password" className="form-control" name='password' onChange={onchange}
           value={credentials.password} id="password" />
       </div>
+
       <button type="submit" className="btn btn-primary" >Submit</button>
     </form>
+
+    <p className="mt-3 text-center  text-light">
+        Don’t have an account? <Link to="/signup" className="text-decoration-none">Sign up</Link>
+      </p>
+      </div>
+    
   )
 }
 
