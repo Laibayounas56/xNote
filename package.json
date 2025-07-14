@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "both": "concurrently \"npm start\" \"cross-env LOCAL=1 nodemon backend/index.js\""
+    "both": "concurrently \"npm run start\" \"nodemon backend/index.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^9.2.0",
-    "cross-env": "^7.0.3"
+    "concurrently": "^9.2.0"
   }
 }
