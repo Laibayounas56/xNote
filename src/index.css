@@ -256,6 +256,8 @@ form {
   transition: var(--transition) !important;
   overflow: hidden;
   position: relative;
+    min-height: 150px !important;
+  min-width: 250px !important;
 }
 
 .card::before {
@@ -280,20 +282,23 @@ form {
 .card-title {
   font-weight: 700 !important;
   color: var(--text-primary) !important;
-  margin-bottom: 0.75rem !important;
+  margin-bottom: 1rem !important;
+   font-size: 1.5rem !important; 
 }
 
 .card-text {
   color: var(--text-secondary) !important;
   line-height: 1.6 !important;
+  font-size: 1.1rem !important;
 }
 
 /* Icon Styles */
 i {
   cursor: pointer !important;
   transition: var(--transition) !important;
-  padding: 0.5rem !important;
+  padding: 0.75rem !important;
   border-radius: 50% !important;
+    font-size: 1.1rem !important;
 }
 
 i:hover {
