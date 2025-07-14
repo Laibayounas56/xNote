@@ -14,5 +14,4 @@ app.use('/api/notes', require('./routes/notes'));
 app.get('/', (req, res) => {
   res.send('xNote backend is up and running!');
 });
-module.exports = serverless(app);
-
+module.exports.handler = serverless(app);
