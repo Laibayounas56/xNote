@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
  import { useNavigate } from 'react-router-dom'
-const host = "x-note-seven.vercel.app";
+const host = "https://x-note-seven.vercel.app";
+
 
 
 const Login = (props) => {
@@ -35,6 +36,8 @@ const Login = (props) => {
   }
 
   return (
+    <div>
+
     <form onSubmit={handleSubmit}>
       <h2 style={{marginTop:"20px",marginBottom:"10px"}}>Login to Continue to xNote</h2>
       <div className="mb-3">
@@ -50,6 +53,15 @@ const Login = (props) => {
       </div>
       <button type="submit" className="btn btn-primary" >Submit</button>
     </form>
+<p className="account-text">
+    Don't have an account?{" "}
+    <a href="/signup" className="signup-link">
+        Sign Up
+    </a>
+</p>
+  
+
+    </div>
   )
 }
 

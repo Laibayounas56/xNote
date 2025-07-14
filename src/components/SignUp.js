@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const host = "x-note-seven.vercel.app";
+const host = "https://x-note-seven.vercel.app";
+
 
 
 const SignUp = (props) => {
@@ -45,6 +46,7 @@ const SignUp = (props) => {
       }
     }
   };
+
 
   const onchange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
