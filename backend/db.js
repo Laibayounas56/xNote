@@ -9,7 +9,7 @@ const connectToMongo = async () => {
   }
 
   try {
-    await mongoose.connect("mongodb+srv://xNote:xNote578@cluster0.33egmgq.mongodb.net/xNote?retryWrites=true&w=majority&appName=Cluster0", {
+    await mongoose.connect("mongodb+srv://xNote:myxNote555@cluster0.33egmgq.mongodb.net/xNote?retryWrites=true&w=majority&appName=Cluster0", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
