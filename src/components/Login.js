@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 const host = "https://x-note-eta.vercel.app";
 
-
 const Login = (props) => {
     const navigate = useNavigate();
   const handleSubmit = async (e) => {
