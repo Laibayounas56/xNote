@@ -23,11 +23,10 @@ setNote({...note,[e.target.name]:e.target.value})
             <label htmlFor="title" className="form-label">Title</label>
             <input type="text" className="form-control" id="title" name="title" value={note.title} onChange={onchange} minLength={3} required/>
           </div>
-        <div className="mb-3">
-  <label htmlFor="desc" className="form-label">Description</label>
-  <textarea className="form-control" id="desc" name="description" value={note.description} onChange={onchange} minLength={5} required rows={3}></textarea>
-</div>
-
+          <div className="mb-3">
+            <label htmlFor="desc" className="form-label">Description</label>
+            <input type="text" className="form-control" id="desc" name="description" value={note.description} onChange={onchange} minLength={5} required/>
+          </div>
            <div className="mb-3">
             <label htmlFor="tag" className="form-label">Tag</label>
             <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onchange} minLength={2} required/>

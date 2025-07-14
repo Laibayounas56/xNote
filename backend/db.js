@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require("dotenv").config({ path: __dirname + '/.env' });
+
 let isConnected = false;
 
 const connectToMongo = async () => {
@@ -9,7 +9,7 @@ const connectToMongo = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGO_URI,{
+    await mongoose.connect("mongodb+srv://xNote:xNote578@cluster0.33egmgq.mongodb.net/xNote?retryWrites=true&w=majority&appName=Cluster0", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
