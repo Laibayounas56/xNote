@@ -1,22 +1,16 @@
 const mongoose = require("mongoose");
-require("dotenv").config({ path: __dirname + '/.env' });
-
 let isConnected = false;
-
 const connectToMongo = async () => {
   if (isConnected) {
-    console.log(" Already connected");
+    console.log(" Already connected to MongoDB");
     return;
   }
-
   const uri = process.env.MONGO_URI;
   if (!uri) {
-    console.error(" MONGO_URI is missing!");
-    return;
+    throw new Error(" MONGO_URI is missing in environment variables");
   }
 
-  console.log(" Attempting to connect to MongoDB with URI:");
-
+  console.log(" Connecting to MongoDB…");
 
   try {
     await mongoose.connect(uri, {
@@ -25,10 +19,10 @@ const connectToMongo = async () => {
     });
 
     isConnected = true;
-    console.log(" MongoDB connected successfully!");
+    console.log(" MongoDB connected successfully");
   } catch (error) {
-    console.error("MongoDB connection FAILED:");
-    console.error(error.message);
+    console.error(" MongoDB connection FAILED:", error);
+    throw error;
   }
 };
 

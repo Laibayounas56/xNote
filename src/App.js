@@ -46,9 +46,12 @@ function App() {
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signUp" element={<SignUp showAlert={showAlert} />} />
 
+
+
             </Routes>
           </div>
         </Router>
+
       </NoteState>
     </>
   );
